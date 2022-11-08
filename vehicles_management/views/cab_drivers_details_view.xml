@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- drivers registration form view  (CTRL + / )-->
+    <record id='drivers_details_form_view' model='ir.ui.view'>
+        <field name="name">drivers.details.form</field>
+        <field name="model">drivers.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="full_name"/>
+                            <field name="permanent_address"/>
+                            <field name="driver_age"/>
+                            <field name="driver_nic_number"/>
+                        </group>
+                        <group>
+                            <field name="driver_nic_image_upload"/>
+                            <field name="driver_valid_driving_license_number"/>
+                            <field name="driver_license_image_upload"/>
+                            <field name="drive_license_expire_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- drivers Details tree view-->
+    <record id='drivers_details_tree_view' model='ir.ui.view'>
+        <field name="name">drivers.details.tree</field>
+        <field name="model">drivers.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="full_name"/>
+                <field name="permanent_address"/>
+                <field name="driver_age"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- drivers Details action -->
+    <record id='drivers_details_action' model='ir.actions.act_window'>
+        <field name="name">Drivers Details</field>
+        <field name="res_model">drivers.details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- manu items-->
+    <menuitem id="vehicles_management_root_menu" name="Vehicle Management"
+              web_icon="vehicles_management,static/description/icon.png" sequence="10">
+        <menuitem id="vehicles_management_sub_menu" name="Configurations" sequence="1">
+            <menuitem id="drivers_details_sub_menu" name="Drivers " sequence="1"
+                      action="drivers_details_action"/>
+        </menuitem>
+    </menuitem>
+
+
+</odoo>

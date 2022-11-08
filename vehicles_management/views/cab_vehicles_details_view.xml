@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vehicles registration form view  (CTRL + / )-->
+    <record id='vehicles_details_form_view' model='ir.ui.view'>
+        <field name="name">vehicles.details.form</field>
+        <field name="model">vehicles.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="vehicle_reg_number"/>
+                            <field name="vehicle_reg_date"/>
+                            <field name="Vehicle_owner_name"/>
+                            <field name="Vehicle_owner_mobile_number"/>
+                            <field name="Vehicle_owner_nic_number"/>
+                            <field name="vehicle_owner_nic_image_upload"/>
+                            <field name="vehicle_valid_insurance_number"/>
+                        </group>
+                        <group>
+                            <field name="vehicle_valid_insurance_image_upload"/>
+                            <field name="vehicle_valid_revenue_license_number"/>
+                            <field name="vehicle_revenue_license_image_upload"/>
+                            <field name="vehicle_insurance_next_expiry_date"/>
+                            <field name="vehicle_revenue_license_next_expiry_date"/>
+                            <field name="vehicle_availability"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Student Details tree view-->
+    <record id='vehicles_details_tree_view' model='ir.ui.view'>
+        <field name="name">vehicles.details.tree</field>
+        <field name="model">vehicles.details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="vehicle_reg_number"/>
+                <field name="Vehicle_owner_mobile_number"/>
+                <field name="Vehicle_owner_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Student Details action -->
+    <record id='vehicles_details_action' model='ir.actions.act_window'>
+        <field name="name">Vehicles Details</field>
+        <field name="res_model">vehicles.details</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- manu items-->
+    <menuitem id="vehicles_management_root_menu" name="Vehicle Management"
+              web_icon="vehicles_management,static/description/icon.png" sequence="10">
+        <menuitem id="vehicles_management_sub_menu" name="Configurations" sequence="1">
+            <menuitem id="vehicles_details_sub_menu" name="Vehicles " sequence="1"
+                      action="vehicles_details_action"/>
+        </menuitem>
+    </menuitem>
+
+
+</odoo>
